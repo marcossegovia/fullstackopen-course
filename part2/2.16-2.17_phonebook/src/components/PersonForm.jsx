@@ -45,6 +45,10 @@ const PersonForm = (
               }, 5000)
             }
           )
+          // Added after 3.19
+          .catch(error => {
+            setNotificationMessage({value: error.response.data.error, type: 'error'})
+          })
       }
 
     } else {
@@ -61,6 +65,10 @@ const PersonForm = (
           setTimeout(() => {
             setNotificationMessage({})
           }, 5000)
+        })
+        // Added after 3.19
+        .catch(error => {
+          setNotificationMessage({value: error.response.data.error, type: 'error'})
         })
     }
 
